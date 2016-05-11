@@ -65,7 +65,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.set('port', 8080);
-app.listen(app.get('port'));
-
 module.exports = app;
