@@ -3,11 +3,13 @@
  */
 var http = require("http");
 var https = require("https");
-
+var url = require('url');
+var globals = require('./globals');
 var that = this;
 
+
+
 module.exports = {
-    celery_access_token: '',
     getProducts: getProducts,
     getJSON: getJSON
 };
@@ -15,14 +17,19 @@ module.exports = {
 
 
 function getProducts(req, res, next) {
+    var url_parts = url.parse(req.url, true);
+    var query = url_parts.query;
+
+    console.log(query);
+    console.log(globals);
     var options = {
-        host: 'api.trycelery.com',
+        host: 'api-sandbox.trycelery.com',
         port: 443,
-        path: '/v2/products',
+        path: '/v2/products/' + query.id,
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': ''
+            'Authorization': globals.token
         }
     };
     getJSON(options, function(statusCode, result)

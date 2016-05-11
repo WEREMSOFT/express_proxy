@@ -65,4 +65,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
+token = 'http://localhost:8080/api/get_products?id=5649774f2a0f7903001dd1aa&';
+
 module.exports = app;
