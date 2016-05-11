@@ -37,6 +37,7 @@ function getProducts(req, res, next) {
         // I could work with the result html/json here.  I could also just return it
         console.log("onResult: (" + statusCode + ")" + JSON.stringify(result));
         res.statusCode = statusCode;
+        res.set('Access-Control-Allow-Origin', '*');
         res.send(result);
     });
 }
