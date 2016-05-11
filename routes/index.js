@@ -12,6 +12,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/api', tools.showJSONfunction);
 
-router.get('/api/get_products', naka.getProducts);
+router.get('/api/get_products', celery.getProducts);
 
 module.exports = router;

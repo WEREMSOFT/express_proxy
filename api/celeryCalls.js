@@ -7,20 +7,22 @@ var https = require("https");
 var that = this;
 
 module.exports = {
-    celery_access_token: 'FAKE_CELERY',
+    celery_access_token: '',
     getProducts: getProducts,
     getJSON: getJSON
 };
+
+
 
 function getProducts(req, res, next) {
     var options = {
         host: 'api.trycelery.com',
         port: 443,
-        path: '/v2/orders/102349409',
+        path: '/v2/products',
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'FAKE_CELERY',
+            'Authorization': ''
         }
     };
     getJSON(options, function(statusCode, result)
